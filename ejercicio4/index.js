@@ -27,16 +27,12 @@ app.engine(
     })
 );
 
-// definimos ruta raiz con archivo a renderizar main.handlebars, se puede obviar la extension por la
-// configuracion previa
-app.get("/", (req, res) => {
-    res.render("pendientes", {layout: "pendientes", tareas: false});
-});
 
-
-// definicion de ruta pendientes
-app.get("/pendientes", function (req, res) {
+// definicion de ruta raiz para renderizar una vista principal pendientes, que recibira como
+// parametro el array tareas sino hay arreglo entonces tareas es false?
+app.get("/", function (req, res) {
     const tareas = ["Ir al médico", "Subir el cerro", "Hacer aseo"];
+    /* const tareas = []; */
     res.render("pendientes", {
         layout: "pendientes", // es la vista a renderizar pendientes.handlebars
         tareas: tareas.length > 0 ? tareas : false, // condiciones o parametros

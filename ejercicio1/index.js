@@ -26,8 +26,7 @@ app.engine(
     })
 );
 
-// definimos ruta raiz con archivo a renderizar main.handlebars, se puede obviar la extension por la
-// configuracion previa
+// definimos ruta raiz con archivo a renderizar main.handlebars, se puede obviar la extension por la configuracion previa
 app.get("/", (req, res) => {
     res.render("main");
 });

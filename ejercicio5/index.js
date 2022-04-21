@@ -1,5 +1,5 @@
 /* Desarrollar un servidor con Express que tenga integrado handlebars y Bootstrap para
-la renderización de una plantilla principal “Inicio” que importe un parcial “Table".
+la renderización de una plantilla principal “Inicio” que importe un parcial “Tabla".
 
 En este parcial que su carpeta sera Componentes, deberás usar el helper “each” para mostrar la información de diferentes usuarios enviados como parámetros en el render de la ruta raíz. */
 
@@ -35,14 +35,8 @@ app.engine(
     })
 );
 
-// definimos ruta raiz con archivo a renderizar main.handlebars, se puede obviar la extension por la
-// configuracion previa
-app.get("/", (req, res) => {
-    res.render("main");
-});
-
 // ruta usuarios para renderizar una lista usuarios que se envia como parametro en el render
-app.get("/usuarios", function (req, res) {
+app.get("/", function (req, res) {
     const usuarios = [
         {
             nombre: "Luis",
@@ -62,8 +56,8 @@ app.get("/usuarios", function (req, res) {
     ]
 
 
-    res.render("main", {
-        layout: "main", usuarios,
+    res.render("inicio", {
+        layout: "inicio", usuarios,
     });
 
 });

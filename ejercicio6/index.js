@@ -1,3 +1,8 @@
+/* Desarrollar un servidor con Express que disponibilice 3 rutas para renderizar 3 vistas
+diferentes: Inicio, Galería y Contactos. El objetivo será utilizar los parciales de handlebars
+para que las 3 vistas compartan el mismo menú de navegación. */
+
+
 // importo y defino la instancia de express
 const express = require("express");
 const app = express();
@@ -18,13 +23,25 @@ app.set("view engine", "handlebars");
 app.engine(
     "handlebars",
     exphbs.engine({
-    layoutsDir: __dirname + "/views",
+        layoutsDir: __dirname + "/views",
+        partialsDir: __dirname + "/views/componentes/",
     })
 );
 
-// definimos ruta raiz con archivo a renderizar main.handlebars, se puede obviar la extension por la
-// configuracion previa
-app.get("/", (req, res) => {
-    res.render("main");
+// Paso 3: definimos ruta raiz con archivo a renderizar inicio.handlebars, se puede obviar la extension por la configuracion previa
+app.get("/", function (req, res) {
+    res.render("inicio", { layout: "inicio" });
+});
+
+
+// Paso 4: definimos ruta /contactos con archivo a renderizar contactos.handlebars, se puede obviar la extension por la configuracion previa
+app.get("/contactos", function (req, res) {
+    res.render("contactos", { layout: "contactos" });
+});
+
+
+// Paso 5: definimos ruta /galeria con archivo a renderizar galeria.handlebars, se puede obviar la extension por la configuracion previa
+app.get("/galeria", function (req, res) {
+    res.render("galeria", { layout: "galeria" });
 });
 
