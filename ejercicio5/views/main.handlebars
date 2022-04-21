@@ -1,0 +1,23 @@
+{{!-- contenido de la plantilla main.handlebars --}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {{!-- llamado a bootstrap que debe ser instalado con npm dentro de node_modules --}}
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <title>Pestaña Principal</title>
+</head>
+
+<body>
+    <h1>Hola mundo! Usando ahora motores de plantillas Handlebars con tablas</h1>
+
+    <div class="container">
+        <h1 class="text-danger text-center">Tabla de usuarios</h1>
+        {{> tabla  }}
+    </div>  
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{{!-- contenido de la lantilla main.hbs --}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hola mundo! Usando ahora motores de plantillas Handlebars con uso de sus helpers</h1>
+
+    {{#if tareas}}
+        <h3>Tus tareas pendientes son:</h3>
+        <ul>
+            {{#each tareas}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+    
+    {{#unless tareas}}
+        <h5>**** No tiene tareas pendientes por hacer ****</h5>
+    {{/unless}}
+
+
+
+
+</body>
+
+</html>
