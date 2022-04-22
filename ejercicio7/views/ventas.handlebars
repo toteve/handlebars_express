@@ -1,0 +1,21 @@
+{{!-- contenido de la plantilla ventas.handlebars --}}
+
+{{!-- Paso 3: Uso del helpers if para validar que parametro usuario recibido desde el metodo render en index.js, tiene un valor --}}
+{{#if usuario}}
+    <h1>
+        Bienvenid@: {{usuario}}
+    </h1>
+    <h3>Tus ventas hoy fueron las siguientes:</h3>
+    <ul>
+        {{!-- Paso 4: Uso del helper each para imprimir contenido del array ventas_dia recibido como parametro desde el metodo render del index.js--}}
+        {{#each ventas_dia}}
+            <li>${{this}}</li>
+        {{/each}}
+    </ul>
+{{/if}}
+
+
+{{!-- Paso 5: Helper unless para validar si usuario recibido desde el metodo render de index.js es false, entonces no existe--}}
+{{#unless usuario}}
+    <h1>Inicie sesión para ver sus ventas</h1>
+{{/unless}}
